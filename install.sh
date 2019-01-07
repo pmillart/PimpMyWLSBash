@@ -24,10 +24,10 @@ sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="agnoster"/' .zshrc
 
 
 #=== configurer les couleurs ===
-echo "Installer le theme solarized"
-curl https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.ansi-dark --output ~/.dircolors
-echo "`dircolors ~/.dircolors`" >> .zshrc
-echo "export LS_COLORS" >> .zshrc
+#echo "Installer le theme solarized"
+#curl https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.ansi-dark --output ~/.dircolors
+#echo "`dircolors ~/.dircolors`" >> .zshrc
+#echo "export LS_COLORS" >> .zshrc
 
 #=== Corriger les problèmes de couleurs ===
 
