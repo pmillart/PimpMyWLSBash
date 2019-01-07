@@ -50,7 +50,8 @@ echo "# Correction des problemes de 16 couleurs dans le terminal WSL de Windows 
 # base16-hopscotch.sh          --bien lumineux
 # base16-pico.sh               --bien lumineux, Powerline grise et jaune
 # base16-solarized-dark.sh" >> .zshrc
-echo "sh $HOME/.base16-shell/scripts/base16-atelier-plateau.sh" >> .zshrc
+BASE16="base16-atelier-plateau.sh"
+echo "sh $HOME/.base16-shell/scripts/${BASE16}" >> .zshrc
 
 #=== plugin Oh My ZSH ===
 #ZSH syntax highlight : https://github.com/mattjj/my-oh-my-zsh/tree/master/plugins/zsh-syntax-highlighting
@@ -63,14 +64,14 @@ compaudit | xargs chmod g-w,o-w
 #  plugins=( [plugins...] zsh-syntax-highlighting)
 #modifier le fichier .zshrc en mettant les plug-ins que vous souhaitez activer 
 #exemple :
+#TODO
 #plugins=(docker git git-flow history history kubectl terraform sudo zsh-autosuggestions zsh-syntax-highlighting)
 #
 
 #=== Autosuggestion basé sur l'historique ===
 git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/plugins/zsh-autosuggestions
 
-
-ajouter zsh-autosuggestions dans les plugins dans .zshrc
+#ajouter zsh-autosuggestions dans les plugins dans .zshrc
 
 
 #==== Démarrer automatiquement ZSH ===
@@ -100,5 +101,6 @@ ajouter zsh-autosuggestions dans les plugins dans .zshrc
 dans le fichier .zshrc ajouter les lignes suivantes
 
 autoload bashcompinit && bashcompinit
-source '/home/stan/az.completion'
+#besoin d'installer azcli pour avoir le fichier az.completion 
+#source '/home/stan/az.completion'
 
