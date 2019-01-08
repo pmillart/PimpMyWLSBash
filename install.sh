@@ -81,6 +81,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/plug
 
 #ajouter zsh-autosuggestions dans les plugins dans .zshrc
 
+sed -i.bkp -e 's/  git/  git history sudo zsh-autosuggestions zsh-syntax-highlighting/g' $ZSHRC
 
 #==== Démarrer automatiquement ZSH ===
 #Source : https://github.com/Microsoft/WSL/issues/1724
