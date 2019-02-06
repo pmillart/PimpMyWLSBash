@@ -42,11 +42,11 @@ sed -i.bkp -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="agnoster"/' .zshrc
 #dans le répertoire, des scripts bash permettent de redéfinir proprement la palette 16 colors.
 #Ex: base16-solarized-dark.sh
 #sh ./base16-shell/scripts/base16-solarized-dark.sh
-git clone https://github.com/chriskempson/base16-shell.git $HOME/.base16-shell
-find $HOME/.base16-shell -name "*.sh" -exec chmod 755 {} \;
+#git clone https://github.com/chriskempson/base16-shell.git $HOME/.base16-shell
+#find $HOME/.base16-shell -name "*.sh" -exec chmod 755 {} \;
 
 
-echo "# Correction des problemes de 16 couleurs dans le terminal WSL de Windows 10
+#echo "# Correction des problemes de 16 couleurs dans le terminal WSL de Windows 10
 # base16-black-metal-immortal.sh
 # base16-black-metal-khold.sh
 # base16-brewer.sh             -- comme mode Nico mais fond plus sombre
@@ -64,11 +64,12 @@ echo "# Correction des problemes de 16 couleurs dans le terminal WSL de Windows 
 #=== plugin Oh My ZSH ===
 #ZSH syntax highlight : https://github.com/mattjj/my-oh-my-zsh/tree/master/plugins/zsh-syntax-highlighting
 #Download the script or clone this repository in oh-my-zsh plugins directory:
-git clone git://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/plugins/zsh-syntax-highlighting
+git clone git://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 #ajouter zsh-autosuggestions dans les plugins dans .zshrc
 #=== Autosuggestion basé sur l'historique ===
-git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 # securisation fichiers pour activer 
+compaudit
 compaudit | xargs chmod g-w,o-w
 
 #Activate the plugin in ~/.zshrc (in last position):
