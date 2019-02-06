@@ -21,14 +21,13 @@ ZSHRC=$HOME/.zshrc
 cd ~
 echo "install zsh"
 sudo apt install zsh
-#>> $ZSHRC
 
 echo "Install oh-my-zsh"
 git clone https://github.com/robbyrussell/oh-my-zsh $HOME/oh-my-zsh
 sh ./oh-my-zsh/tools/install.sh
 
 echo "changer le theme par défaut par agnoster"
-sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="agnoster"/' .zshrc
+sed -i.bkp -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="agnoster"/' .zshrc
 
 
 #=== configurer les couleurs ===
@@ -58,15 +57,19 @@ echo "# Correction des problemes de 16 couleurs dans le terminal WSL de Windows 
 # base16-hopscotch.sh          --bien lumineux
 # base16-pico.sh               --bien lumineux, Powerline grise et jaune
 # base16-solarized-dark.sh" >> $ZSHRC
-BASE16="base16-atelier-plateau.sh"
-echo "sh $HOME/.base16-shell/scripts/${BASE16}" >> $ZSHRC
+
+# BASE16="base16-atelier-plateau.sh"
+# echo "sh $HOME/.base16-shell/scripts/${BASE16}" >> $ZSHRC
 
 #=== plugin Oh My ZSH ===
 #ZSH syntax highlight : https://github.com/mattjj/my-oh-my-zsh/tree/master/plugins/zsh-syntax-highlighting
 #Download the script or clone this repository in oh-my-zsh plugins directory:
-git clone git://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/custom/plugins
+git clone git://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/plugins/zsh-syntax-highlighting
+#ajouter zsh-autosuggestions dans les plugins dans .zshrc
+#=== Autosuggestion basé sur l'historique ===
+git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/plugins/zsh-autosuggestions
 # securisation fichiers pour activer 
-#compaudit | xargs chmod g-w,o-w
+compaudit | xargs chmod g-w,o-w
 
 #Activate the plugin in ~/.zshrc (in last position):
 #  plugins=( [plugins...] zsh-syntax-highlighting)
@@ -76,12 +79,9 @@ git clone git://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zs
 #plugins=(docker git git-flow history history kubectl terraform sudo zsh-autosuggestions zsh-syntax-highlighting)
 #
 
-#=== Autosuggestion basé sur l'historique ===
-git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/plugins/zsh-autosuggestions
 
-#ajouter zsh-autosuggestions dans les plugins dans .zshrc
 
-sed -i.bkp -e 's/  git/  git history sudo zsh-autosuggestions zsh-syntax-highlighting/g' $ZSHRC
+#sed -i.bkp -e 's/  git/  git history sudo zsh-autosuggestions zsh-syntax-highlighting/g' $ZSHRC
 
 #==== Démarrer automatiquement ZSH ===
 #Source : https://github.com/Microsoft/WSL/issues/1724
@@ -109,7 +109,7 @@ sed -i.bkp -e 's/  git/  git history sudo zsh-autosuggestions zsh-syntax-highlig
 #=== Pour autocomplete de la ligne de commande Azure (az) ===
 #dans le fichier .zshrc ajouter les lignes suivantes
 
-echo "autoload bashcompinit && bashcompinit" >> $ZSHRC
+# echo "autoload bashcompinit && bashcompinit" >> $ZSHRC
 #besoin d'installer azcli pour avoir le fichier az.completion 
 #source '/home/stan/az.completion'
 
