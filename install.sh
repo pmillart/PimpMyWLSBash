@@ -10,6 +10,9 @@
 # Variables 
 ZSHRC=$HOME/.zshrc
 
+# force umask
+umask 022
+
 #clean
 [ -f $ZSHRC ] && rm $ZSHRC
 [ -d $HOME/oh-my-zsh ] && rm -rf $HOME/oh-my-zsh
@@ -61,6 +64,7 @@ sed -i.bkp -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="agnoster"/' $ZSHRC
 # BASE16="base16-atelier-plateau.sh"
 # echo "sh $HOME/.base16-shell/scripts/${BASE16}" >> $ZSHRC
 
+echo "umask 022" >>  $ZSHRC
 #=== plugin Oh My ZSH ===
 #ZSH syntax highlight : https://github.com/mattjj/my-oh-my-zsh/tree/master/plugins/zsh-syntax-highlighting
 #Download the script or clone this repository in oh-my-zsh plugins directory:
@@ -76,7 +80,7 @@ compaudit | xargs chmod g-w,o-w
 #  plugins=( [plugins...] zsh-syntax-highlighting)
 #modifier le fichier .zshrc en mettant les plug-ins que vous souhaitez activer 
 #exemple :
-sed -i.bkp2 -e '/plugins=(git)/plugins=(git history terraform zsh-autosuggestions zsh-syntax-highlighting)/' $ZSHRC
+sed -i.bkp2 -e 's/plugins=(git)/plugins=(git history terraform zsh-autosuggestions zsh-syntax-highlighting)/' $ZSHRC
 #plugins=(docker git git-flow history history kubectl terraform sudo zsh-autosuggestions zsh-syntax-highlighting)
 #
 
