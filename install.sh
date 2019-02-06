@@ -27,7 +27,7 @@ git clone https://github.com/robbyrussell/oh-my-zsh $HOME/oh-my-zsh
 sh ./oh-my-zsh/tools/install.sh
 
 echo "changer le theme par défaut par agnoster"
-sed -i.bkp -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="agnoster"/' .zshrc
+sed -i.bkp -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="agnoster"/' $ZSHRC
 
 
 #=== configurer les couleurs ===
@@ -76,7 +76,7 @@ compaudit | xargs chmod g-w,o-w
 #  plugins=( [plugins...] zsh-syntax-highlighting)
 #modifier le fichier .zshrc en mettant les plug-ins que vous souhaitez activer 
 #exemple :
-#TODO
+sed -i.bkp2 -e '/plugins=(git)/plugins=(git history terraform zsh-autosuggestions zsh-syntax-highlighting)/' $ZSHRC
 #plugins=(docker git git-flow history history kubectl terraform sudo zsh-autosuggestions zsh-syntax-highlighting)
 #
 
